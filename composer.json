@@ -1,0 +1,40 @@
+{
+  "name": "kingbeto/csv",
+  "description": "Laravel 5 package for writing and reading CSV files. It's a respawn of wilgucki/csv",
+  "keywords": ["Laravel", "csv"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Maciej Wilgucki",
+      "email": "mwilgucki@gmail.com"
+    },
+    {
+      "name": "Alberto Pardo Saleme",
+      "email": "apardo@engeni.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "kingbeto/php-csv": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Wilgucki\\Csv\\": "src",
+      "Wilgucki\\Csv\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Wilgucki\\Csv\\CsvServiceProvider"
+      ],
+      "aliases": {
+        "CsvReader": "Wilgucki\\Csv\\Facades\\Reader",
+        "CsvWriter": "Wilgucki\\Csv\\Facades\\Writer"
+      }
+    }
+  }
+}
