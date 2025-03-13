@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
@@ -15,7 +16,7 @@ class CsvImportableTest extends TestCase
 
         $csv = tempnam(sys_get_temp_dir(), 'test-csv-');
 
-        $writer = new Writer();
+        $writer = new Writer;
         $writer->create($csv);
         $writer->writeLine(array_keys($userData));
         $writer->writeLine($userData);
@@ -24,7 +25,9 @@ class CsvImportableTest extends TestCase
         $model = new class extends Model
         {
             use CsvImportable;
+
             protected $table = 'users';
+
             protected $fillable = ['name', 'email', 'password'];
         };
         $model->fromCsv($csv);
@@ -42,7 +45,7 @@ class CsvImportableTest extends TestCase
 
         $csv = tempnam(sys_get_temp_dir(), 'test-csv-');
 
-        $writer = new Writer();
+        $writer = new Writer;
         $writer->create($csv);
         $writer->writeLine(array_keys($userData));
         $writer->writeLine($userData);
@@ -51,7 +54,9 @@ class CsvImportableTest extends TestCase
         $model = new class extends Model
         {
             use CsvImportable;
+
             protected $table = 'users';
+
             protected $fillable = ['name', 'email', 'password'];
         };
 

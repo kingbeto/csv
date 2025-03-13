@@ -1,4 +1,5 @@
 <?php
+
 namespace Wilgucki\Csv\Commands;
 
 use Illuminate\Console\Command;
@@ -7,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 class Export extends Command
 {
     protected $name = 'csv:export';
+
     protected $description = 'Export database table into CSV file';
 
     public function handle()
@@ -15,8 +17,9 @@ class Export extends Command
         $csvPath = $this->argument('csv-file');
 
         $traits = class_uses($modelClass);
-        if (!isset($traits['Wilgucki\Csv\Traits\CsvCustomCollection'])) {
+        if (! isset($traits['Wilgucki\Csv\Traits\CsvCustomCollection'])) {
             $this->error('Your model class does not use CsvCustomCollection trait.');
+
             return;
         }
 
@@ -29,7 +32,7 @@ class Export extends Command
     {
         return [
             ['model', InputArgument::REQUIRED, 'Model\'s class name with its namespace'],
-            ['csv-file', InputArgument::REQUIRED, 'File name with path relative to project\'s root directory']
+            ['csv-file', InputArgument::REQUIRED, 'File name with path relative to project\'s root directory'],
         ];
     }
 }

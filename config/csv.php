@@ -52,12 +52,12 @@ return [
         'reader' => [
             'enabled' => false,
             'from' => '',
-            'to' => ''
+            'to' => '',
         ],
         'writer' => [
             'enabled' => false,
             'from' => '',
-            'to' => ''
-        ]
-    ]
+            'to' => '',
+        ],
+    ],
 ];

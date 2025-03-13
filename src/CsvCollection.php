@@ -1,4 +1,5 @@
 <?php
+
 namespace Wilgucki\Csv;
 
 use Illuminate\Database\Eloquent\Collection;
@@ -30,6 +31,7 @@ class CsvCollection extends Collection
 
         $out = $writer->flush();
         $writer->close();
+
         return $out;
     }
 }

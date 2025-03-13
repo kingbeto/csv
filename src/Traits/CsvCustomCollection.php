@@ -1,4 +1,5 @@
 <?php
+
 namespace Wilgucki\Csv\Traits;
 
 use Wilgucki\Csv\CsvCollection;

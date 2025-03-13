@@ -1,4 +1,5 @@
 <?php
+
 namespace Wilgucki\Csv\Commands;
 
 use Illuminate\Console\Command;
@@ -7,6 +8,7 @@ use Symfony\Component\Console\Input\InputArgument;
 class Import extends Command
 {
     protected $name = 'csv:import';
+
     protected $description = 'Import CSV file into database table';
 
     public function handle()
@@ -15,13 +17,15 @@ class Import extends Command
         $csvPath = $this->argument('csv-file');
 
         $traits = class_uses($modelClass);
-        if (!isset($traits['Wilgucki\Csv\Traits\CsvImportable'])) {
+        if (! isset($traits['Wilgucki\Csv\Traits\CsvImportable'])) {
             $this->error('Your model class does not use CsvImportable trait.');
+
             return;
         }
 
-        if (!file_exists(base_path($csvPath))) {
+        if (! file_exists(base_path($csvPath))) {
             $this->error('Cannot find csv file.');
+
             return;
         }
 
@@ -34,7 +38,7 @@ class Import extends Command
     {
         return [
             ['model', InputArgument::REQUIRED, 'Model\'s class name with its namespace'],
-            ['csv-file', InputArgument::REQUIRED, 'File name with path relative to project\'s root directory']
+            ['csv-file', InputArgument::REQUIRED, 'File name with path relative to project\'s root directory'],
         ];
     }
 }

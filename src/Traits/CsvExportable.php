@@ -1,4 +1,5 @@
 <?php
+
 namespace Wilgucki\Csv\Traits;
 
 use Wilgucki\PhpCsv\Writer;
@@ -17,6 +18,7 @@ trait CsvExportable
         $writer->writeLine($data);
         $out = $writer->flush();
         $writer->close();
+
         return $out;
     }
 }

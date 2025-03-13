@@ -1,4 +1,5 @@
 <?php
+
 namespace Wilgucki\Csv\Traits;
 
 use Wilgucki\PhpCsv\Reader;
@@ -20,7 +21,7 @@ trait CsvImportable
                 if ($column == 'id') {
                     continue;
                 }
-                if (!in_array($column, $model->fillable)) {
+                if (! in_array($column, $model->fillable)) {
                     continue;
                 }
                 $model->{$column} = $value;

@@ -1,4 +1,5 @@
 <?php
+
 use Tests\TestCase;
 use Wilgucki\Csv\CsvServiceProvider;
 use Wilgucki\PhpCsv\Reader;

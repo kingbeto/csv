@@ -1,4 +1,5 @@
 <?php
+
 use Tests\TestCase;
 use Wilgucki\Csv\CsvCollection;
 use Wilgucki\Csv\Traits\CsvCustomCollection;
@@ -26,47 +27,47 @@ class CsvCollectionTest extends TestCase
             [
                 [['x' => 'a', 'y' => 'b', 'z' => 'c']],
                 true,
-                3
+                3,
             ],
             [
                 [['x' => 'a', 'y' => 'b', 'z' => 'c'], ['x' => 'a', 'y' => 'b', 'z' => 'c']],
                 true,
-                4
+                4,
             ],
             [
                 ['x' => 'a', 'y' => 'b', 'z' => 'c'],
                 true,
-                3
+                3,
             ],
             [
                 [['x' => 'a', 'y' => 'b', 'z' => 'c'], ['x' => 'a', 'y' => 'b', 'z' => 'c']],
                 false,
-                3
+                3,
             ],
             [
                 ['x' => 'a', 'y' => 'b', 'z' => 'c'],
                 false,
-                2
+                2,
             ],
             [
                 [['a', 'b', 'c']],
                 true,
-                3
+                3,
             ],
             [
                 [['a', 'b', 'c'], ['a', 'b', 'c']],
                 true,
-                4
+                4,
             ],
             [
                 [['a', 'b', 'c']],
                 false,
-                2
+                2,
             ],
             [
                 [['a', 'b', 'c'], ['a', 'b', 'c']],
                 false,
-                3
+                3,
             ],
             [
                 [],
