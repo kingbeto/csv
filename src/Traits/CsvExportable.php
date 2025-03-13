@@ -6,11 +6,9 @@ use Wilgucki\PhpCsv\Writer;
 
 trait CsvExportable
 {
-    public function toCsv(bool $append = false)
+    public function toCsv(bool $append = false): string
     {
-        /**
-         * @var Writer $writer
-         */
+        /** @var Writer $writer */
         $writer = app()->get('csv-writer');
         $writer->create($append ? 'a+' : 'w+');
         $data = $this->toArray();

@@ -10,16 +10,16 @@ use Wilgucki\PhpCsv\Writer;
 
 class CsvServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__.'/../config/csv.php' => config_path('csv.php'),
         ], 'config');
     }
 
-    public function register()
+    public function register(): void
     {
-        app()->bind('csv-reader', function () {
+        app()->bind('csv-reader', function (): Reader {
             return new Reader(
                 config('csv.delimiter'),
                 config('csv.enclosure'),
@@ -29,7 +29,7 @@ class CsvServiceProvider extends ServiceProvider
             );
         });
 
-        app()->bind('csv-writer', function () {
+        app()->bind('csv-writer', function (): Writer {
             return new Writer(
                 config('csv.delimiter'),
                 config('csv.enclosure'),

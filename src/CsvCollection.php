@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class CsvCollection extends Collection
 {
-    public function toCsv(bool $setHeader = true, bool $append = false)
+    public function toCsv(bool $setHeader = true, bool $append = false): string
     {
         $data = $this->toArray();
 

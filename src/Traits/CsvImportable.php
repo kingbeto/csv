@@ -6,16 +6,14 @@ use Wilgucki\PhpCsv\Reader;
 
 trait CsvImportable
 {
-    public static function fromCsv(string $file)
+    public static function fromCsv(string $file): void
     {
-        /**
-         * @var Reader $reader
-         */
+        /** @var Reader $reader */
         $reader = app()->get('csv-reader');
         $reader = $reader->open($file);
         $reader->getHeader();
         while (($row = $reader->readLine()) !== false) {
-            $id = isset($row['id']) ? $row['id'] : null;
+            $id = $row['id'] ?? null;
             $model = self::findOrNew($id);
             foreach ($row as $column => $value) {
                 if ($column == 'id') {

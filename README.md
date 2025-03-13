@@ -5,7 +5,7 @@ It's a respawn of the deleted wilgucki/csv.
 
 ## Warning
 
-**The package has been updated to PHP 7. If you can't update to PHP 7 use version 0.6.x**
+**The package has been updated to PHP 8.3. If you can't update to PHP 8.3 use version 1.0.x which requires PHP 7.0+**
 
 ## Instalation
 

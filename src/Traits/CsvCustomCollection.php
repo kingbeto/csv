@@ -6,7 +6,7 @@ use Wilgucki\Csv\CsvCollection;
 
 trait CsvCustomCollection
 {
-    public function newCollection(array $models = [])
+    public function newCollection(array $models = []): CsvCollection
     {
         return new CsvCollection($models);
     }
